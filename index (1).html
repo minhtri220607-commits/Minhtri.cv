@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Website CV cá nhân - Sinh viên Kinh doanh quốc tế định hướng Sales xuất khẩu">
+<title>CV cá nhân | Sales xuất khẩu</title>
+<style>
+:root {
+  --site-primary: #173f35;
+  --site-secondary: #dce9df;
+  --site-background: #f5f4ef;
+  --site-on-primary: #ffffff;
+  --site-on-secondary: #173f35;
+  --site-on-background: #202a25;
+  --site-font-body: Inter, "Segoe UI", Arial, sans-serif;
+  --site-font-heading: Georgia, "Times New Roman", serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  color-scheme: light dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--site-font-body);
+  background: light-dark(#f5f4ef, #141a17);
+  color: light-dark(#202a25, #edf2ee);
+  line-height: 1.65;
+}
+#app {
+  min-height: 100vh;
+  width: 100%;
+  border-radius: 0;
+  background-color: light-dark(var(--site-background), #141a17);
+  color: light-dark(var(--site-on-background), #edf2ee);
+}
+a { color: inherit; }
+.topbar {
+  background: var(--site-primary);
+  color: var(--site-on-primary);
+  padding: calc(14px * var(--site-spacing-scale)) 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand { font-weight: 800; letter-spacing: .08em; font-size: .85rem; }
+.nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav a { text-decoration: none; font-size: .9rem; opacity: .9; }
+.nav a:hover { text-decoration: underline; }
+.hero {
+  background: var(--site-primary);
+  color: var(--site-on-primary);
+  padding: clamp(54px, 9vw, 112px) 8vw clamp(64px, 9vw, 120px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, .7fr);
+  gap: 42px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  right: -100px;
+  bottom: -190px;
+  opacity: var(--site-decoration-opacity);
+  pointer-events: none;
+}
+.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .76rem; font-weight: 700; color: #c8ddce; }
+h1, h2, h3 { margin-top: 0; }
+h1 {
+  font-family: var(--site-font-heading);
+  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
+  line-height: 1.04;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  margin: 18px 0;
+}
+.hero p { max-width: 660px; color: #e0ebe3; font-size: 1.06rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.button { display: inline-block; padding: 12px 18px; border-radius: calc(999px * var(--site-radius-scale)); text-decoration: none; font-weight: 700; border: 1px solid rgba(255,255,255,.45); cursor: pointer; font: inherit; font-weight: 700; }
+.button-light { background: #f4f5ef; color: #173f35; border-color: #f4f5ef; }
+.button-outline { color: white; background: transparent; }
+.profile-mark {
+  width: min(100%, 270px);
+  aspect-ratio: 1;
+  margin: auto;
+  border-radius: 50%;
+  background: var(--site-secondary);
+  color: var(--site-primary);
+  display: grid;
+  place-items: center;
+  font-family: var(--site-font-heading);
+  font-size: 5rem;
+  border: 12px solid rgba(255,255,255,.13);
+  outline: 1px solid rgba(255,255,255,.35);
+  outline-offset: 8px;
+}
+main { max-width: 1120px; margin: 0 auto; padding: 0 6vw 70px; }
+.section { padding: 72px 0 0; }
+.section-head { display: flex; gap: 22px; align-items: baseline; margin-bottom: 28px; border-bottom: 1px solid light-dark(#d5dcd5, #34433a); padding-bottom: 14px; }
+.section-number { color: #648572; font-size: .82rem; letter-spacing: .12em; font-weight: 800; }
+h2 { font-family: var(--site-font-heading); font-size: calc(clamp(1.8rem, 3vw, 2.6rem) * var(--site-heading-scale)); font-weight: 500; margin: 0; }
+.about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 42px; }
+.lead { font-size: 1.12rem; max-width: 700px; }
+.info-card, .project-card, .skill-card {
+  background: light-dark(#ffffff, #1c2620);
+  border: 1px solid light-dark(#e0e5df, #34433a);
+  border-radius: calc(18px * var(--site-radius-scale));
+  padding: calc(24px * var(--site-spacing-scale));
+}
+.info-list { list-style: none; padding: 0; margin: 0; }
+.info-list li { padding: 10px 0; border-bottom: 1px solid light-dark(#edf0ec, #303b33); overflow-wrap: anywhere; }
+.info-list li:last-child { border-bottom: 0; }
+.label { display: block; color: #648572; font-size: .75rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.timeline { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid light-dark(#dfe4de, #34433a); }
+.timeline:last-child { border-bottom: 0; }
+.date { color: #648572; font-size: .9rem; font-weight: 700; }
+.item-title { font-weight: 800; font-size: 1.08rem; margin-bottom: 5px; }
+.muted { color: light-dark(#5d6961, #bac7bd); }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.project-card { position: relative; overflow: hidden; }
+.project-tag { color: #648572; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 800; }
+.project-card h3 { font-family: var(--site-font-heading); font-size: 1.55rem; line-height: 1.2; margin: 12px 0; }
+.project-card ul { padding-left: 20px; margin-bottom: 0; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.skill-card h3 { font-size: 1rem; margin-bottom: 10px; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { background: var(--site-secondary); color: var(--site-on-secondary); border-radius: calc(999px * var(--site-radius-scale)); padding: 6px 11px; font-size: .84rem; }
+.callout { margin-top: 72px; background: var(--site-secondary); color: var(--site-on-secondary); border-radius: calc(20px * var(--site-radius-scale)); padding: clamp(28px, 5vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+.callout h2 { max-width: 600px; }
+.callout .button { background: var(--site-primary); color: var(--site-on-primary); border-color: var(--site-primary); white-space: nowrap; }
+footer { margin-top: 40px; background: var(--site-primary); color: var(--site-on-primary); padding: 25px 6vw; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .88rem; }
+.edit-note { margin-top: 18px; font-size: .82rem; color: light-dark(#68756c, #b3c0b6); }
+@media (max-width: 760px) {
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .hero { grid-template-columns: 1fr; padding-left: 7vw; padding-right: 7vw; }
+  .profile-mark { width: 155px; font-size: 3.5rem; grid-row: 1; }
+  .about-grid, .project-grid, .skills-grid { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; gap: 6px; }
+  .callout { align-items: flex-start; flex-direction: column; }
+  .section { padding-top: 54px; }
+}
+@media print {
+  .topbar, .hero-actions, .callout .button { display: none; }
+  .hero { padding: 30px; print-color-adjust: exact; }
+  main { max-width: none; }
+  .section { padding-top: 25px; }
+  .info-card, .project-card, .skill-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div id="app" data-sites-preview-theme="custom">
+  <header class="topbar">
+    <div class="brand">HỒ SƠ CÁ NHÂN</div>
+    <nav class="nav" aria-label="Điều hướng chính">
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#hoc-van">Học vấn</a>
+      <a href="#du-an">Dự án</a>
+      <a href="#ky-nang">Kỹ năng</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Sinh viên Kinh doanh quốc tế · Định hướng Sales xuất khẩu</div>
+      <h1>[HỌ VÀ TÊN<br> CỦA BẠN]</h1>
+      <p>Tôi là sinh viên ngành Kinh doanh quốc tế, quan tâm đến thương mại quốc tế, phát triển khách hàng và hoạt động xuất khẩu. Tôi mong muốn phát triển kỹ năng nghiên cứu thị trường, giao tiếp kinh doanh và hỗ trợ quy trình bán hàng quốc tế.</p>
+      <div class="hero-actions">
+        <a class="button button-light" href="#du-an">Xem dự án của tôi ↓</a>
+        <a class="button button-outline" href="#lien-he">Liên hệ</a>
+      </div>
+    </div>
+    <div class="profile-mark" aria-label="Ký hiệu tên viết tắt">CV</div>
+  </section>
+  <main>
+    <section class="section" id="gioi-thieu">
+      <div class="section-head"><span class="section-number">01 /</span><h2>Giới thiệu</h2></div>
+      <div class="about-grid">
+        <div>
+          <p class="lead">Tôi đang xây dựng nền tảng kiến thức về kinh doanh quốc tế và mong muốn vận dụng kiến thức vào các hoạt động nghiên cứu thị trường, tìm kiếm khách hàng tiềm năng và hỗ trợ chào hàng xuất khẩu.</p>
+          <p class="muted">Tôi có tinh thần học hỏi, chủ động tiếp thu kiến thức mới và sẵn sàng phát triển kỹ năng chuyên môn thông qua các dự án học tập cũng như cơ hội thực tập.</p>
+        </div>
+        <div class="info-card">
+          <ul class="info-list">
+            <li><span class="label">Định hướng</span>Sales xuất khẩu / Kinh doanh quốc tế</li>
+            <li><span class="label">Địa điểm</span>[Thành phố, Việt Nam]</li>
+            <li><span class="label">Email</span>[Email của bạn]</li>
+            <li><span class="label">Điện thoại</span>[Số điện thoại — tùy chọn]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="hoc-van">
+      <div class="section-head"><span class="section-number">02 /</span><h2>Học vấn</h2></div>
+      <div class="timeline">
+        <div class="date">[Năm bắt đầu] – Hiện tại</div>
+        <div>
+          <div class="item-title">Ngành Kinh doanh quốc tế</div>
+          <div class="muted">[Tên trường đại học] · [Thành phố]</div>
+          <p class="muted">Kiến thức liên quan: thương mại quốc tế, marketing, kinh tế, logistics và nghiệp vụ xuất nhập khẩu. Chỉ giữ những môn học phù hợp với chương trình thực tế của bạn.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="du-an">
+      <div class="section-head"><span class="section-number">03 /</span><h2>Dự án học tập</h2></div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-tag">Dự án 01 · Nghiên cứu thị trường</div>
+          <h3>Nghiên cứu tiềm năng xuất khẩu cà phê Việt Nam sang Nhật Bản</h3>
+          <p class="muted">Dự án học tập / cá nhân · [Thời gian]</p>
+          <ul>
+            <li>Tìm hiểu thị trường cà phê Nhật Bản và các yếu tố ảnh hưởng đến cơ hội xuất khẩu.</li>
+            <li>Xác định nhóm khách hàng mục tiêu và nghiên cứu đối thủ cạnh tranh.</li>
+            <li>Đề xuất hướng tiếp cận thị trường dựa trên thông tin đã thu thập.</li>
+          </ul>
+        </article>
+        <article class="project-card">
+          <div class="project-tag">Dự án 02 · Chào hàng xuất khẩu</div>
+          <h3>Xây dựng bộ hồ sơ chào hàng túi vải Việt Nam</h3>
+          <p class="muted">Dự án học tập / cá nhân · [Thời gian]</p>
+          <ul>
+            <li>Soạn hồ sơ giới thiệu sản phẩm và thông tin quy cách đóng gói.</li>
+            <li>Lập báo giá giả định, nêu rõ các giả định về chi phí và điều kiện giao hàng.</li>
+            <li>Soạn email chào hàng tiếng Anh hướng đến nhà nhập khẩu nước ngoài.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="edit-note">Lưu ý: Đây là nội dung mẫu để chỉnh sửa. Chỉ giữ dự án mà bạn đã thực hiện; nếu chưa làm, hãy hoàn thành dự án trước khi dùng bản này để ứng tuyển.</p>
+    </section>
+    <section class="section" id="ky-nang">
+      <div class="section-head"><span class="section-number">04 /</span><h2>Kỹ năng</h2></div>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>Kinh doanh quốc tế</h3><div class="pills"><span class="pill">Nghiên cứu thị trường</span><span class="pill">Tìm hiểu khách hàng</span><span class="pill">Chào hàng xuất khẩu</span></div></div>
+        <div class="skill-card"><h3>Tin học văn phòng</h3><div class="pills"><span class="pill">Word</span><span class="pill">Excel cơ bản</span><span class="pill">PowerPoint</span></div></div>
+        <div class="skill-card"><h3>Kỹ năng cá nhân</h3><div class="pills"><span class="pill">Làm việc nhóm</span><span class="pill">Giao tiếp</span><span class="pill">Tự học</span></div></div>
+      </div>
+      <div class="timeline">
+        <div class="date">Ngoại ngữ</div>
+        <div><div class="item-title">Tiếng Anh</div><div class="muted">[Điền trình độ thực tế hoặc chứng chỉ nếu có]</div></div>
+      </div>
+    </section>
+    <section class="section" id="hoat-dong">
+      <div class="section-head"><span class="section-number">05 /</span><h2>Hoạt động & phát triển</h2></div>
+      <div class="timeline">
+        <div class="date">[Ngày tham dự]</div>
+        <div><div class="item-title">Tọa đàm “Hành trình Logistics”</div><div class="muted">Tham dự tọa đàm về vận tải hàng hóa đường biển bằng tàu chuyến và giao nhận hàng hóa xuất nhập khẩu bằng đường hàng không.</div></div>
+      </div>
+      <p class="edit-note">Chỉ giữ mục này nếu bạn đã tham dự sự kiện. Có thể thêm câu lạc bộ, tình nguyện hoặc cuộc thi nếu có.</p>
+    </section>
+    <section class="callout" id="lien-he">
+      <div><div class="eyebrow" style="color:#416b54">Kết nối với tôi</div><h2>Sẵn sàng học hỏi và phát triển trong lĩnh vực kinh doanh quốc tế.</h2><p>Liên hệ với tôi qua email để trao đổi về cơ hội thực tập hoặc công việc phù hợp.</p></div>
+      <a class="button" href="mailto:emailcuaban@example.com" id="emailButton">Gửi email ↗</a>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> [HỌ VÀ TÊN CỦA BẠN]</span><span>CV cá nhân · Kinh doanh quốc tế</span></footer>
+</div>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+// Replace the email in the contact section and mailto link with your own address before publishing.
+</script>
+</body>
+</html>
